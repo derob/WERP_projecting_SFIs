@@ -1,6 +1,6 @@
 # How to develop on this project
 
-python_projects welcomes contributions from the community.
+werp_projection_sfis welcomes contributions from the community.
 
 **You need PYTHON3!**
 

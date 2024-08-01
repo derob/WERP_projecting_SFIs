@@ -1,30 +1,30 @@
-# python_projects
+# werp_projection_sfis
 
 [![codecov](https://codecov.io/gh/fre171csiro/python-projects/branch/main/graph/badge.svg?token=python-projects_token_here)](https://codecov.io/gh/fre171csiro/python-projects)
 [![CI](https://github.com/fre171csiro/python-projects/actions/workflows/main.yml/badge.svg)](https://github.com/fre171csiro/python-projects/actions/workflows/main.yml)
 
-Awesome python_projects created by fre171csiro
+Awesome werp_projection_sfis created by fre171csiro
 
 ## Install it from PyPI
 
 ```bash
-pip install python_projects
+pip install werp_projection_sfis
 ```
 
 ## Usage
 
 ```py
-from python_projects import BaseClass
-from python_projects import base_function
+from werp_projection_sfis import BaseClass
+from werp_projection_sfis import base_function
 
 BaseClass().base_method()
 base_function()
 ```
 
 ```bash
-$ python -m python_projects
+$ python -m werp_projection_sfis
 #or
-$ python_projects
+$ werp_projection_sfis
 ```
 
 ## Development

@@ -1,4 +1,4 @@
-"""CLI interface for python_projects project.
+"""CLI interface for werp_projection_sfis project.
 
 Be creative! do whatever you want!
 
@@ -12,7 +12,7 @@ Be creative! do whatever you want!
 def main():  # pragma: no cover
     """
     The main function executes on commands:
-    `python -m python_projects` and `$ python_projects `.
+    `python -m werp_projection_sfis` and `$ werp_projection_sfis `.
 
     This is your program's entry point.
 

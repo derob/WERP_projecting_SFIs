@@ -26,20 +26,20 @@ install:          ## Install the project in dev mode.
 
 .PHONY: fmt
 fmt:              ## Format code using black & isort.
-	$(ENV_PREFIX)isort python_projects/
-	$(ENV_PREFIX)black -l 79 python_projects/
+	$(ENV_PREFIX)isort werp_projection_sfis/
+	$(ENV_PREFIX)black -l 79 werp_projection_sfis/
 	$(ENV_PREFIX)black -l 79 tests/
 
 .PHONY: lint
 lint:             ## Run pep8, black, mypy linters.
-	$(ENV_PREFIX)flake8 python_projects/
-	$(ENV_PREFIX)black -l 79 --check python_projects/
+	$(ENV_PREFIX)flake8 werp_projection_sfis/
+	$(ENV_PREFIX)black -l 79 --check werp_projection_sfis/
 	$(ENV_PREFIX)black -l 79 --check tests/
-	$(ENV_PREFIX)mypy --ignore-missing-imports python_projects/
+	$(ENV_PREFIX)mypy --ignore-missing-imports werp_projection_sfis/
 
 .PHONY: test
 test: lint        ## Run tests and generate coverage report.
-	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=python_projects -l --tb=short --maxfail=1 tests/
+	$(ENV_PREFIX)pytest -v --cov-config .coveragerc --cov=werp_projection_sfis -l --tb=short --maxfail=1 tests/
 	$(ENV_PREFIX)coverage xml
 	$(ENV_PREFIX)coverage html
 
@@ -78,9 +78,9 @@ virtualenv:       ## Create a virtual environment.
 release:          ## Create a new tag for release.
 	@echo "WARNING: This operation will create s version tag and push to github"
 	@read -p "Version? (provide the next x.y.z semver) : " TAG
-	@echo "$${TAG}" > python_projects/VERSION
+	@echo "$${TAG}" > werp_projection_sfis/VERSION
 	@$(ENV_PREFIX)gitchangelog > HISTORY.md
-	@git add python_projects/VERSION HISTORY.md
+	@git add werp_projection_sfis/VERSION HISTORY.md
 	@git commit -m "release: version $${TAG} 🚀"
 	@echo "creating git tag : $${TAG}"
 	@git tag $${TAG}
@@ -101,7 +101,7 @@ switch-to-poetry: ## Switch to poetry package manager.
 	@poetry init --no-interaction --name=a_flask_test --author=rochacbruno
 	@echo "" >> pyproject.toml
 	@echo "[tool.poetry.scripts]" >> pyproject.toml
-	@echo "python_projects = 'python_projects.__main__:main'" >> pyproject.toml
+	@echo "werp_projection_sfis = 'werp_projection_sfis.__main__:main'" >> pyproject.toml
 	@cat requirements.txt | while read in; do poetry add --no-interaction "$${in}"; done
 	@cat requirements-test.txt | while read in; do poetry add --no-interaction "$${in}" --dev; done
 	@poetry install --no-interaction
@@ -109,7 +109,7 @@ switch-to-poetry: ## Switch to poetry package manager.
 	@mv requirements* .github/backup
 	@mv setup.py .github/backup
 	@echo "You have switched to https://python-poetry.org/ package manager."
-	@echo "Please run 'poetry shell' or 'poetry run python_projects'"
+	@echo "Please run 'poetry shell' or 'poetry run werp_projection_sfis'"
 
 .PHONY: init
 init:             ## Initialize the project based on an application template.

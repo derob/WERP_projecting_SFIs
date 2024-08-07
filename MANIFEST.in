@@ -2,4 +2,4 @@ include LICENSE
 include HISTORY.md
 include Containerfile
 graft tests
-graft werp_projection_sfis
+graft werp_projecting_sfis

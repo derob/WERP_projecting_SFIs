@@ -1,30 +1,30 @@
-# werp_projection_sfis
+# werp_projecting_sfis
 
 [![codecov](https://codecov.io/gh/fre171csiro/python-projects/branch/main/graph/badge.svg?token=python-projects_token_here)](https://codecov.io/gh/fre171csiro/python-projects)
 [![CI](https://github.com/fre171csiro/python-projects/actions/workflows/main.yml/badge.svg)](https://github.com/fre171csiro/python-projects/actions/workflows/main.yml)
 
-Awesome werp_projection_sfis created by fre171csiro
+Awesome werp_projecting_sfis created by fre171csiro
 
 ## Install it from PyPI
 
 ```bash
-pip install werp_projection_sfis
+pip install werp_projecting_sfis
 ```
 
 ## Usage
 
 ```py
-from werp_projection_sfis import BaseClass
-from werp_projection_sfis import base_function
+from werp_projecting_sfis import BaseClass
+from werp_projecting_sfis import base_function
 
 BaseClass().base_method()
 base_function()
 ```
 
 ```bash
-$ python -m werp_projection_sfis
+$ python -m werp_projecting_sfis
 #or
-$ werp_projection_sfis
+$ werp_projecting_sfis
 ```
 
 ## Development
@@ -32,6 +32,10 @@ $ werp_projection_sfis
 **Dev setup**
 1. Install `pyenv` if not already installed on your dev machine (see steps below), this is optional however it makes managing python easier
 1. Install `poetry` (see steps below).  `poetry` is used to manage the python environment and is a alternative to `conda`
+
+To enable pymc to compile a model (and infer parameter ~10 times faster)
+1. Install `msys2` (http://www.msys2.org/, specifically download and run the x86_64 installer) , then in `msys2` add mingw-wc64 gcc/g++ compiler by executing `pacman -S mingw-w64-x86_64-gcc` in the msys2 terminal. Then add path to g++ compiler to the system PATH (e.g. `C:\msys64\mingw64\bin` ).
+
 1. Setup the project environment
     1. Using the `cmd` change directory to your code parent directory and:
     1. Using `pyenv` install python 3.10.10, e.g. `pyenv install 3.10.10`

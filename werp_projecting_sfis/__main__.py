@@ -1,6 +1,6 @@
-"""Entry point for werp_projection_sfis."""
+"""Entry point for werp_projecting_sfis."""
 
-from werp_projection_sfis.cli import main  # pragma: no cover
+from werp_projecting_sfis.cli import main  # pragma: no cover
 
 if __name__ == "__main__":  # pragma: no cover
     main()

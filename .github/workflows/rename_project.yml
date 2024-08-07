@@ -6,7 +6,7 @@ permissions: write-all
 
 jobs:
   rename-project:
-    if: ${{ !contains (github.repository, '/werp_projection_sfis') }}
+    if: ${{ !contains (github.repository, '/werp_projecting_sfis') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -48,3 +48,11 @@ def sfi_file_to_pandas (filename):
     outdf = pd.concat(outlist, axis = 1, join='inner')
     
     return(outdf)
+
+
+def inpredictor_function(inflowfile):
+    inpredictor = pd.read_csv(inflowfile)
+    inpredictor['date'] = pd.to_datetime(inpredictor['date'])
+    inpredictor.set_index('date', inplace=True)
+    annualpredictor0 = inpredictor.resample("YE-JUN").sum()
+    return annualpredictor0

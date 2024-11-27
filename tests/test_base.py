@@ -1,5 +1,5 @@
 from werp_projecting_sfis.base import NAME
-from werp_projecting_sfis.file_io import sfi_file_to_pandas
+from werp_projecting_sfis.file_io import sfi_file_to_pandas, inpredictor_function, predictor_to_str
 import os as os
 from pathlib import Path
 import pandas as pd
@@ -30,3 +30,7 @@ def test_predictor():
         else:
             assert str(year) + '-' + str(i % 12 + 1) + '-01' == inpredictor['date'].iloc[i - 6], "Incorrect year"
     
+def test_lagged_inflow():
+    laggedinflow_predictor = predictor_to_str(inpredictor_function("/Users/26wanga/Documents/ORAC/CSIRO/MURR_P0H.csv"))
+    assert laggedinflow_predictor['inflow_lagged'].iloc[0] == 8322251.0, "Incorrect inflow"
+

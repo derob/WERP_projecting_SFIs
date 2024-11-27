@@ -49,6 +49,13 @@ def sfi_file_to_pandas (filename):
     
     return(outdf)
 
+def predictor_to_str(annualpredictor):
+    laggedinflow_predictor = annualpredictor.copy(deep=True)
+    laggedtimeindex = laggedinflow_predictor.index
+    laggedtimeindexstring = [ str(laggedtime.year-1) + "-" + str(laggedtime.month) + "-" + str(laggedtime.day) for laggedtime in laggedtimeindex]
+    laggedinflow_predictor.index = pd.to_datetime(laggedtimeindexstring)
+    laggedinflow_predictor.columns = [col +"_lagged" for col in laggedinflow_predictor.columns]
+    return laggedinflow_predictor
 
 def inpredictor_function(inflowfile):
     inpredictor = pd.read_csv(inflowfile)

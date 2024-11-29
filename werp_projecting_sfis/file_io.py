@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import pymc as pymc
+from matplotlib import pyplot as plt
 def sfi_file_to_pandas (filename):
 
     openfile = open(filename)
@@ -63,3 +65,14 @@ def inpredictor_function(inflowfile):
     inpredictor.set_index('date', inplace=True)
     annualpredictor0 = inpredictor.resample("YE-JUN").sum()
     return annualpredictor0
+
+def regression_model(data, inn, BMF):
+    with pymc.Model() as binomial_regression_model_preview:
+        x = pymc.Data("x", (data[inn]))
+        beta0 = pymc.Normal("beta0", mu=0, sigma=100)
+        beta1 = pymc.Normal("beta1", mu=0, sigma=100)
+        mu = beta0 + beta1 * x
+        p = pymc.Deterministic("p", pymc.math.invlogit(mu))
+        print(mu, p)
+        pymc.Binomial("y", n=1, p=p, observed=data[BMF])
+    return binomial_regression_model_preview

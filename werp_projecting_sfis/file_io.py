@@ -74,5 +74,5 @@ def regression_model(data, inn, BMF):
         mu = beta0 + beta1 * x
         p = pymc.Deterministic("p", pymc.math.invlogit(mu))
         print(mu, p)
-        pymc.Binomial("y", n=1, p=p, observed=data[BMF])
+        pymc.Bernoulli("y", p=p, observed=data[BMF])
     return binomial_regression_model_preview
